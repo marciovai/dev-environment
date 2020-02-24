@@ -6,7 +6,7 @@
 
 FROM ubuntu:latest
 
-MAINTAINER "Marcio Ribeiro <https://github.com/marciovai>"
+LABEL maintainer="Marcio Ribeiro <https://github.com/marciovai>"
 
 # prepares environment
 RUN apt-get update && apt-get upgrade && apt-get install -y software-properties-common locales
