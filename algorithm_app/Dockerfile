@@ -10,7 +10,7 @@ LABEL maintainer="Marcio Ribeiro <https://github.com/marciovai>"
 ARG external_lib_path
 
 # prepares environment
-RUN apt-get update && apt-get upgrade && apt-get install -y software-properties-common locales
+RUN apt-get update && apt-get upgrade -y && apt-get install -y software-properties-common locales
 
 # set locales
 RUN export LC_ALL="en_US.UTF-8"
@@ -21,12 +21,8 @@ RUN dpkg-reconfigure locales
 RUN apt-get install -y python3-pip
 RUN pip3 install --upgrade pip
 
-# copy python packages to contianer
+# copy python packages list to contianer and install
 COPY ./requirements.txt .
-
-RUN mkdir external_lib
-COPY ${external_lib_path} ./external_lib
-
 RUN pip install -r requirements.txt
 
-RUN python setup.py install
+RUN mkdir external_lib
