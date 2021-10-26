@@ -1,2 +1,2 @@
 # dev-environment
-Development Environment used to accelerate project configuration using Docker containers
+Docker based environment for working with Jupyter Notebooks and deploying small Python apps using containers.
